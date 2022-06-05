@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %} {{ data.titulo }} {% endblock %}
+
+{% block content %}
+<div class="row">
+  <div class="col-12">
+    <h1>{{ 'Cartelera' }}</h1>
+  </div>
+  <div class="col-md-12">
+    {% for genero in data.generos %}
+      <button class="alert alert-info" id="{{ genero.id}}">
+        {{ genero.nombre }}
+      </button>
+    {% endfor %}
+  </div>
+</div>
+
+<div class="row row-cols-1 row-cols-md-3 g-4 movies">
+
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script type="module" src="{{ url_for('static', filename='js/getMovies.js')}}"></script>
+<script type="module" src="{{ url_for('static', filename='js/buttons.js')}}"></script>
+{% endblock %}

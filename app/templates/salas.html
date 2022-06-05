@@ -1,0 +1,29 @@
+{% extends 'base.html'%}
+
+{% block title %} {{ data.titulo }} {% endblock %}
+
+{% block content %}
+
+<!-- hacer una tabla con todos los dias, salas -->
+
+<table class="table">
+  <thead class="table-dark">
+    <tr>
+      <th>Nombre</th>
+      <th>Campos</th>
+      <th>Precio</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for sala in data.salas %}
+    <tr>
+      <td>{{ sala.nombre }}</td>
+      <td>{{ sala.campos }}</td>
+      <td>{{ "₡"+ sala.precio }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %} {{ data.titulo }} {% endblock %}
+
+{% block content %}
+<!-- si la imagen es muy grande que se acomoden una sobre otra -->
+<div class="row row-cols-1 row-cols-md-3 g-4">
+  {% for candy in data.dulceria %}
+  <div class="col mb-4">
+    <div class="card">
+      <img src="{{ candy.imagen }}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{ candy.nombre }}</h5>
+        <p class="card-text">{{ candy.descripcion }}</p>
+        <p class="card-text">{{ '₡' + candy.precio }}</p>
+        <a href="#" class="btn btn-primary">Comprar</a>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script type="module" src="{{ url_for('static', filename='js/getCandys.js')}}"></script>
+{% endblock %}
